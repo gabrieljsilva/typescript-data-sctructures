@@ -7,6 +7,11 @@ describe('stack tests', () => {
     expect(stack.peek()).toBe(item);
   });
 
+  it('should construct an stack without initial items', () => {
+    const stack = new Stack<number>();
+    expect(stack.peek()).toBe(undefined);
+  });
+
   it('should add an item to the end of a stack and return it', () => {
     const item = 2;
     const stack = new Stack<number>([1]);
