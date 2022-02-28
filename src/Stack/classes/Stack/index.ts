@@ -1,0 +1,11 @@
+export class Stack<T = any> {
+    private items: Array<T> = []
+
+    constructor(initialItems: Array<T> = []) {
+      this.items = initialItems;
+    }
+
+    peek() {
+      return this.items[this.items.length - 1];
+    }
+}
