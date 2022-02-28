@@ -35,4 +35,10 @@ describe('stack tests', () => {
     stack.push(1);
     expect(stack.isEmpty()).toBe(false);
   });
+
+  it('should remove all elements of a stack', () => {
+    const stack = new Stack([1, 2, 3]);
+    stack.clear();
+    expect(stack.isEmpty()).toBe(true);
+  });
 });
