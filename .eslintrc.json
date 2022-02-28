@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
         "airbnb-base"
@@ -20,6 +21,8 @@
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
         "import/order": "off",
-        "import/no-self-import": "off"
+        "import/no-self-import": "off",
+        "import/extensions": "off"
     }
 }
+
