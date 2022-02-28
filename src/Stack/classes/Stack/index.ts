@@ -12,4 +12,8 @@ export class Stack<T = any> {
     push(item: T) {
       this.items.push(item);
     }
+
+    pop() {
+      return this.items.pop();
+    }
 }
