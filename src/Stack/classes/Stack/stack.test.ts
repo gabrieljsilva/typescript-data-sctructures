@@ -41,4 +41,9 @@ describe('stack tests', () => {
     stack.clear();
     expect(stack.isEmpty()).toBe(true);
   });
+
+  it('should return the length of the stack', () => {
+    const stack = new Stack([0, 1, 2, 3, 4]);
+    expect(stack.length()).toBe(5);
+  });
 });

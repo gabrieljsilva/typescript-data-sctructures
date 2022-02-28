@@ -24,4 +24,8 @@ export class Stack<T = any> {
     clear() {
       this.items = [];
     }
+
+    length() {
+      return this.items.length;
+    }
 }
