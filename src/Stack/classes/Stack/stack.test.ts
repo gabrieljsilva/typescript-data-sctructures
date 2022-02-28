@@ -24,4 +24,15 @@ describe('stack tests', () => {
     const stack = new Stack<number>([item]);
     expect(stack.pop()).toBe(item);
   });
+
+  it('should return true if the stack is empty', () => {
+    const stack = new Stack();
+    expect(stack.isEmpty()).toBe(true);
+  });
+
+  it('should return false if the stack is not empty', () => {
+    const stack = new Stack();
+    stack.push(1);
+    expect(stack.isEmpty()).toBe(false);
+  });
 });

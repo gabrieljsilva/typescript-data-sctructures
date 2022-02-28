@@ -16,4 +16,8 @@ export class Stack<T = any> {
     pop() {
       return this.items.pop();
     }
+
+    isEmpty() {
+      return this.items.length === 0;
+    }
 }
