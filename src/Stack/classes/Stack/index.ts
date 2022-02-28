@@ -8,4 +8,8 @@ export class Stack<T = any> {
     peek() {
       return this.items[this.items.length - 1];
     }
+
+    push(item: T) {
+      this.items.push(item);
+    }
 }
