@@ -27,4 +27,8 @@ export class Queue<T = any> {
     delete this.items[this.lowestCount++];
     return item;
   }
+
+  isEmpty() {
+    return this.count === this.lowestCount;
+  }
 }

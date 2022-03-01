@@ -28,4 +28,15 @@ describe('queue tests', () => {
     const queue = new Queue();
     expect(queue.dequeue()).toBe(undefined);
   });
+
+  it('should return true if a queue is empty', () => {
+    const queue = new Queue();
+    expect(queue.isEmpty()).toBe(true);
+  });
+
+  it('should return false if a queue is not empty', () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    expect(queue.isEmpty()).toBe(false);
+  });
 });
