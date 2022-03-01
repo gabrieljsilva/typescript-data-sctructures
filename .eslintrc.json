@@ -22,7 +22,8 @@
         "import/no-extraneous-dependencies": "off",
         "import/order": "off",
         "import/no-self-import": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "no-plusplus": "off"
     }
 }
 
