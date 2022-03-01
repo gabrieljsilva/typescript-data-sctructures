@@ -32,7 +32,13 @@ export class Queue<T = any> {
     return this.count === this.lowestCount;
   }
 
-  length() {
+  clear() {
+    this.items = {};
+    this.count = 0;
+    this.lowestCount = 0;
+  }
+
+  get length() {
     return this.count - this.lowestCount;
   }
 }

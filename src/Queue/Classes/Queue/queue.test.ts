@@ -42,9 +42,16 @@ describe('queue tests', () => {
 
   it('should return the size of a queue', () => {
     const queue = new Queue();
-    expect(queue.length()).toBe(0);
+    expect(queue.length).toBe(0);
 
     queue.enqueue(1);
-    expect(queue.length()).toBe(1);
+    expect(queue.length).toBe(1);
+  });
+
+  it('should clear a queue', () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    queue.clear();
+    expect(queue.length).toBe(0);
   });
 });
