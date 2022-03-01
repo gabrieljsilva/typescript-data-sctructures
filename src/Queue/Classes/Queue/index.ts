@@ -18,4 +18,10 @@ export class Queue<T = any> {
   enqueue(item: T) {
     this.items[this.count++] = item;
   }
+
+  dequeue() {
+    const item = this.items[this.lowestCount];
+    delete this.items[this.lowestCount++];
+    return item;
+  }
 }
