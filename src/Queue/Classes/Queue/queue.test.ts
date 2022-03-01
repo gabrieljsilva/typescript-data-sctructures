@@ -39,4 +39,12 @@ describe('queue tests', () => {
     queue.enqueue(1);
     expect(queue.isEmpty()).toBe(false);
   });
+
+  it('should return the size of a queue', () => {
+    const queue = new Queue();
+    expect(queue.length()).toBe(0);
+
+    queue.enqueue(1);
+    expect(queue.length()).toBe(1);
+  });
 });

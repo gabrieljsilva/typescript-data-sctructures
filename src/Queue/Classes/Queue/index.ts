@@ -31,4 +31,8 @@ export class Queue<T = any> {
   isEmpty() {
     return this.count === this.lowestCount;
   }
+
+  length() {
+    return this.count - this.lowestCount;
+  }
 }
