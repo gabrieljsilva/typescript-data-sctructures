@@ -1,13 +1,13 @@
 import { Stack } from './index';
 
 describe('stack tests', () => {
-  it('should construct an stack with initial items and show last element', () => {
+  it('should construct a stack with initial items and show last element', () => {
     const item = 1;
     const stack = new Stack<number>([item]);
     expect(stack.peek()).toBe(item);
   });
 
-  it('should construct an stack without initial items', () => {
+  it('should construct a stack without initial items', () => {
     const stack = new Stack<number>();
     expect(stack.peek()).toBe(undefined);
   });
