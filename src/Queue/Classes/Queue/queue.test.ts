@@ -17,12 +17,10 @@ describe('queue tests', () => {
 
   it('should remove and item from the beginning of the queue', () => {
     const item = 1;
-    const item2 = 2;
     const queue = new Queue();
     queue.enqueue(item);
-    queue.enqueue(item2);
 
     expect(queue.dequeue()).toBe(item);
-    expect(queue.peek()).toBe(item2);
+    expect(queue.peek()).toBe(undefined);
   });
 });
