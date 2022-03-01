@@ -21,6 +21,9 @@ export class Queue<T = any> {
 
   dequeue() {
     const item = this.items[this.lowestCount];
+    if (!item) {
+      return undefined;
+    }
     delete this.items[this.lowestCount++];
     return item;
   }

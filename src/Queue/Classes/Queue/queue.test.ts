@@ -23,4 +23,9 @@ describe('queue tests', () => {
     expect(queue.dequeue()).toBe(item);
     expect(queue.peek()).toBe(undefined);
   });
+
+  it('should return undefined when dequeue an empty queue', () => {
+    const queue = new Queue();
+    expect(queue.dequeue()).toBe(undefined);
+  });
 });
