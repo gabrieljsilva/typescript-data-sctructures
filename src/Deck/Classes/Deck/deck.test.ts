@@ -33,4 +33,20 @@ describe('deck tests', () => {
     deck.unshift(3);
     expect(deck.peekFront()).toBe(3);
   });
+
+  it('should add an item in the end of deck ', () => {
+    const deck = new Deck();
+    const item = 2;
+    deck.push(1);
+    deck.push(item);
+    expect(deck.peekBack()).toBe(item);
+  });
+
+  it('should remove an item from the end of deck and return it', () => {
+    const deck = new Deck();
+    const item = 2;
+    deck.push(1);
+    deck.push(item);
+    expect(deck.pop()).toBe(item);
+  });
 });

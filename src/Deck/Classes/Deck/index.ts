@@ -19,6 +19,12 @@ export class Deck<T = any> {
     this.items[this.count++] = item;
   }
 
+  pop() {
+    const item = this.items[--this.count];
+    delete this.items[--this.count];
+    return item;
+  }
+
   unshift(item: T) {
     if (this.isEmpty) {
       this.push(item);
@@ -43,5 +49,9 @@ export class Deck<T = any> {
 
   peekFront() {
     return this.items[this.lowestCount];
+  }
+
+  peekBack() {
+    return this.items[this.count - 1];
   }
 }
