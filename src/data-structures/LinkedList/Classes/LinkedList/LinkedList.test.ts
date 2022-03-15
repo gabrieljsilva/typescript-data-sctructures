@@ -14,7 +14,7 @@ describe('LinkedList tests', () => {
       list.push(item);
     });
 
-    expect(list.peek()).toBe(items[items.length - 1]);
+    expect(list.getElementAt(list.size)).toBe(items[items.length - 1]);
   });
 
   it('should execute callback for every item on list', () => {
@@ -28,5 +28,27 @@ describe('LinkedList tests', () => {
     list.forEach((item, index) => {
       expect(item).toBe(items[index]);
     });
+  });
+
+  it('should get element from an index', () => {
+    const items = [1, 2, 3, 4, 5];
+    const list = new LinkedList<number>();
+
+    items.forEach((item) => {
+      list.push(item);
+    });
+
+    expect(list.getElementAt(list.size - 1)).toBe(items[items.length - 1]);
+  });
+
+  it('should get the number of elements in a list', () => {
+    const items = [1, 2, 3, 4, 5];
+    const list = new LinkedList<number>();
+
+    items.forEach((item) => {
+      list.push(item);
+    });
+
+    expect(list.size).toBe(items.length);
   });
 });

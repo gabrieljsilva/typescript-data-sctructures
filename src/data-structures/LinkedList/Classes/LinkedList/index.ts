@@ -38,11 +38,20 @@ export class LinkedList<T = any> {
     }
   }
 
-  peek() {
+  getElementAt(index: number): T {
     let currentItem = this.head;
-    while (currentItem?.next) {
-      currentItem = currentItem.next;
+    let currentIndex = 0;
+    while (currentIndex <= this.count) {
+      if (index === currentIndex) {
+        return currentItem?.value;
+      }
+      currentItem = currentItem!.next;
+      currentIndex++;
     }
     return currentItem?.value;
+  }
+
+  get size() {
+    return this.count;
   }
 }
