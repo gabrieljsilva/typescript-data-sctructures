@@ -43,7 +43,7 @@ export class LinkedList<T = any> {
     let currentIndex = 0;
     while (currentIndex <= this.count) {
       if (index === currentIndex) {
-        return currentItem?.value;
+        break;
       }
       currentItem = currentItem!.next;
       currentIndex++;

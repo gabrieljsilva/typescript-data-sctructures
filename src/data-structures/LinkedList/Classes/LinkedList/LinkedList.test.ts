@@ -14,7 +14,7 @@ describe('LinkedList tests', () => {
       list.push(item);
     });
 
-    expect(list.getElementAt(list.size)).toBe(items[items.length - 1]);
+    expect(list.getElementAt(list.size - 1)).toBe(items[items.length - 1]);
   });
 
   it('should execute callback for every item on list', () => {
