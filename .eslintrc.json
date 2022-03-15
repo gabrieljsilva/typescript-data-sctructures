@@ -24,7 +24,8 @@
         "import/no-self-import": "off",
         "import/extensions": "off",
         "no-plusplus": "off",
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "no-unused-vars": "off"
     }
 }
 

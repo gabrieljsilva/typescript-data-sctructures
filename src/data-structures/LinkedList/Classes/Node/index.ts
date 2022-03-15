@@ -3,8 +3,7 @@ export class Node<T = any> {
 
   public next?: Node<T>;
 
-  constructor(value: T, next?: Node<T>) {
+  constructor(value: T) {
     this.value = value;
-    this.next = next;
   }
 }
