@@ -14,6 +14,17 @@ describe('LinkedList tests', () => {
       list.push(item);
     });
 
+    expect(list.peek()).toBe(items[items.length - 1]);
+  });
+
+  it('should execute callback for every item on list', () => {
+    const items = [1, 2, 3, 4, 5];
+    const list = new LinkedList<number>();
+
+    items.forEach((item) => {
+      list.push(item);
+    });
+
     list.forEach((item, index) => {
       expect(item).toBe(items[index]);
     });

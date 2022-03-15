@@ -37,4 +37,12 @@ export class LinkedList<T = any> {
       currentIndex++;
     }
   }
+
+  peek() {
+    let currentItem = this.head;
+    while (currentItem?.next) {
+      currentItem = currentItem.next;
+    }
+    return currentItem?.value;
+  }
 }
