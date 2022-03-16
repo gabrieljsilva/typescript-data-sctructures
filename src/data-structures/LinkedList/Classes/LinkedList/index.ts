@@ -38,17 +38,15 @@ export class LinkedList<T = any> {
     }
   }
 
-  getElementAt(index: number): T {
-    let currentItem = this.head;
-    let currentIndex = 0;
-    while (currentIndex <= this.count) {
-      if (index === currentIndex) {
-        break;
+  getElementAt(index: number): T | undefined {
+    if (index >= 0 && index <= this.count) {
+      let node = this.head;
+      for (let i = 0; i < index && node; i++) {
+        node = node.next;
       }
-      currentItem = currentItem!.next;
-      currentIndex++;
+      return node?.value;
     }
-    return currentItem?.value;
+    return undefined;
   }
 
   get size() {
