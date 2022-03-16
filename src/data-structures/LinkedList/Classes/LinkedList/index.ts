@@ -39,14 +39,30 @@ export class LinkedList<T = any> {
   }
 
   getElementAt(index: number): T | undefined {
+    const node = this.getNodeAt(index);
+    return node?.value;
+  }
+
+  getNodeAt(index: number): Node | undefined {
     if (index >= 0 && index <= this.count) {
       let node = this.head;
       for (let i = 0; i < index && node; i++) {
         node = node.next;
       }
-      return node?.value;
+      return node;
     }
     return undefined;
+  }
+
+  remove(index: number) {
+    if (index === 0) {
+      this.head = undefined;
+    } else {
+      const previousItem = this.getNodeAt(index - 1);
+      const current = previousItem?.next;
+      previousItem!.next = current?.next;
+    }
+    this.count--;
   }
 
   get size() {
