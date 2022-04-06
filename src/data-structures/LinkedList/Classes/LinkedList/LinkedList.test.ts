@@ -2,7 +2,7 @@ import { LinkedList } from '.';
 import { Node } from '../Node';
 
 describe('LinkedList tests', () => {
-  it('should create an LinkedList', () => {
+  it('should create a LinkedList', () => {
     const list = new LinkedList();
     expect(list instanceof LinkedList).toBeTruthy();
   });
@@ -11,9 +11,7 @@ describe('LinkedList tests', () => {
     const items = [1, 2, 3, 4, 5];
     const list = new LinkedList<number>();
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     expect(list.getElementAt(list.size - 1)).toBe(items[items.length - 1]);
   });
@@ -22,9 +20,7 @@ describe('LinkedList tests', () => {
     const items = [1, 2, 3, 4, 5];
     const list = new LinkedList<number>();
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     list.forEach((item, index) => {
       expect(item).toBe(items[index]);
@@ -35,9 +31,7 @@ describe('LinkedList tests', () => {
     const items = [1, 2, 3, 4, 5];
     const list = new LinkedList<number>();
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     expect(list.getElementAt(list.size - 1)).toBe(items[items.length - 1]);
   });
@@ -58,9 +52,7 @@ describe('LinkedList tests', () => {
     const items = [1, 2, 3, 4, 5];
     const list = new LinkedList<number>();
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     expect(list.size).toBe(items.length);
   });
@@ -69,9 +61,7 @@ describe('LinkedList tests', () => {
     const list = new LinkedList<number>();
     const items = [1, 2, 3, 4, 5];
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     const indexToRemove = 2;
 
@@ -96,14 +86,64 @@ describe('LinkedList tests', () => {
     const list = new LinkedList<number>();
     const items = [1, 2, 3, 4, 5];
 
-    items.forEach((item) => {
-      list.push(item);
-    });
+    items.forEach((item) => list.push(item));
 
     const indexToFind = 0;
 
     const node = list.getNodeAt(indexToFind);
     expect(node instanceof Node).toBeTruthy();
     expect(node?.value).toBe(items[indexToFind]);
+  });
+
+  it('should insert an item in given index of a list', () => {
+    const list = new LinkedList<number>();
+    const items = [1, 2, 3, 5];
+    items.forEach((item) => list.push(item));
+
+    const indexToUpdate = 2;
+    const valueToAdd = 4;
+
+    const hasAdded = list.insert(valueToAdd, indexToUpdate);
+
+    expect(list.getElementAt(indexToUpdate)).toBe(valueToAdd);
+    expect(list.size).toBe(items.length + 1);
+    expect(hasAdded).toBe(true);
+  });
+
+  it('should insert and item in first position of a list', () => {
+    const list = new LinkedList<number>();
+
+    const indexToUpdate = 0;
+    const valueToAdd = 1;
+
+    const hasAdded = list.insert(valueToAdd, indexToUpdate);
+
+    expect(list.getElementAt(indexToUpdate)).toBe(valueToAdd);
+    expect(list.size).toBe(1);
+    expect(hasAdded).toBe(true);
+  });
+
+  it('should not add an item if index is out of range', () => {
+    const list = new LinkedList<number>();
+
+    const indexToUpdate = 1;
+    const valueToAdd = 1;
+
+    const hasAdded = list.insert(valueToAdd, indexToUpdate);
+
+    expect(list.size).toBe(0);
+    expect(hasAdded).toBe(false);
+  });
+
+  it('should not add an item if index is negative', () => {
+    const list = new LinkedList<number>();
+
+    const indexToUpdate = -1;
+    const valueToAdd = 1;
+
+    const hasAdded = list.insert(valueToAdd, indexToUpdate);
+
+    expect(list.size).toBe(0);
+    expect(hasAdded).toBe(false);
   });
 });

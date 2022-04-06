@@ -1,7 +1,7 @@
 import { defaultEquals } from '../../../../utils/functions/defaultEquals';
 import { Node } from '../Node';
 
-type DefaultEqualsFN<T = any> = (a: T, B: T) => boolean
+type DefaultEqualsFN<T = any> = (a: T, B: T) => boolean;
 
 export class LinkedList<T = any> {
   private count: number;
@@ -63,6 +63,25 @@ export class LinkedList<T = any> {
       previousItem!.next = current?.next;
     }
     this.count--;
+  }
+
+  insert(value: T, index: number) {
+    const node = new Node(value);
+
+    if (this.count < index || index < 0) {
+      return false;
+    }
+
+    if (index === 0) {
+      this.head = node;
+    } else {
+      const previousItem = this.getNodeAt(index - 1);
+      const currentItem = previousItem?.next;
+      node.next = currentItem;
+      previousItem!.next = node;
+    }
+    this.count++;
+    return true;
   }
 
   get size() {
