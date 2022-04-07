@@ -146,4 +146,14 @@ describe('LinkedList tests', () => {
     expect(list.size).toBe(0);
     expect(hasAdded).toBe(false);
   });
+
+  it('should iterate every item using for...of sintaxe', () => {
+    const list = new LinkedList<number>();
+    const items = [1, 2, 3, 5];
+    items.forEach((item) => list.push(item));
+
+    for (const item of list) {
+      expect(items.includes(item)).toBe(true);
+    }
+  });
 });

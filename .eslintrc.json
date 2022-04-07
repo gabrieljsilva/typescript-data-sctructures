@@ -25,7 +25,10 @@
         "import/extensions": "off",
         "no-plusplus": "off",
         "no-use-before-define": "off",
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "class-methods-use-this": "off",
+        "no-restricted-syntax": "off",
+        "no-console": "off"
     }
 }
 

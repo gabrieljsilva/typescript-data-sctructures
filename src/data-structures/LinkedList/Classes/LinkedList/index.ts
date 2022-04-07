@@ -1,18 +1,20 @@
-import { defaultEquals } from '../../../../utils/functions/defaultEquals';
 import { Node } from '../Node';
-
-type DefaultEqualsFN<T = any> = (a: T, B: T) => boolean;
 
 export class LinkedList<T = any> {
   private count: number;
 
   private head?: Node;
 
-  private defaultEquals: DefaultEqualsFN<T>;
-
-  constructor(equalsFN: DefaultEqualsFN<T> = defaultEquals) {
+  constructor() {
     this.count = 0;
-    this.defaultEquals = equalsFN;
+  }
+
+  * [Symbol.iterator]() {
+    let currentItem = this.head;
+    while (currentItem) {
+      yield currentItem.value;
+      currentItem = currentItem?.next;
+    }
   }
 
   push(item: T) {
