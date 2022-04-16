@@ -9,7 +9,7 @@ export class LinkedList<T = any> {
     this.count = 0;
   }
 
-  * [Symbol.iterator]() {
+  *[Symbol.iterator]() {
     let currentItem = this.head;
     while (currentItem) {
       yield currentItem.value;
