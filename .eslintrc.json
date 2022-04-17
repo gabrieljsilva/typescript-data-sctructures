@@ -26,6 +26,6 @@
     "no-console": "off",
     "no-param-reassign": "off",
     "max-len": ["error", { "code": 120, "tabWidth": 4 }],
-    "generator-star-spacing": ["before", "error"]
+    "generator-star-spacing": "off"
   }
 }

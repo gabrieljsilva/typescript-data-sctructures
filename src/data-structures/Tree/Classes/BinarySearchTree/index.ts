@@ -1,11 +1,11 @@
 import { Compare, defaultCompare } from '../../../../utils/functions/compare';
-import { iterateInOrder } from '../../../../utils/functions/inOrderIterateTree';
+import { inOrderTraverse } from '../../../../utils/functions/inOrderTraverse';
 import { Node } from '../Node';
 import {
   BinarySearchTreeCallbackFN,
   BinarySearchTreeDefaultCompareFN,
   BinarySearchTreeIterateFN,
-} from './types';
+} from '../../types';
 
 export class BinarySearchTree<T = any> {
   root?: Node<T>;
@@ -15,14 +15,14 @@ export class BinarySearchTree<T = any> {
   private iterateFN: BinarySearchTreeIterateFN<T>;
 
   constructor(
+    iterateFN: BinarySearchTreeIterateFN<T> = inOrderTraverse,
     compareFN: BinarySearchTreeDefaultCompareFN<T> = defaultCompare,
-    iterateFN: BinarySearchTreeIterateFN<T> = iterateInOrder,
   ) {
     this.compareFN = compareFN;
     this.iterateFN = iterateFN;
   }
 
-  forEach(callback: BinarySearchTreeCallbackFN<T>) {
+  forEachKey(callback: BinarySearchTreeCallbackFN<T>) {
     this.iterateFN(this.root, callback);
   }
 

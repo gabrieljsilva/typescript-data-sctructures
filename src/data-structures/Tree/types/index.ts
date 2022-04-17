@@ -1,4 +1,4 @@
-import { Node } from '../../Node';
+import { Node } from '../Classes/Node';
 
 export type BinarySearchTreeDefaultCompareFN<T = any> = (a: T, b: T) => number;
 export type BinarySearchTreeCallbackFN<T> = (key: T) => void;

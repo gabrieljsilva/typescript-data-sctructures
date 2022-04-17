@@ -1,9 +1,5 @@
-import { BinarySearchTree } from './data-structures/Tree/Classes/BinarySearchTree';
+const values = [1, 4, 6, 3, 5, 2];
 
-const tree = new BinarySearchTree<number>();
-
-tree.insert(1);
-tree.insert(2);
-tree.insert(-1);
-tree.insert(8);
-tree.insert(-9);
+console.log(values);
+console.log(values.sort());
+console.log(values);
