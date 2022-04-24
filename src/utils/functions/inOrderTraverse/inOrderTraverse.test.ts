@@ -4,9 +4,10 @@ import { inOrderTraverse } from './index';
 describe('inOrderTraverse tests', () => {
   it('should iterate a binary search tree using in-order sequence', () => {
     const tree = new BinarySearchTree<number>();
-    const inOrderSequence = [1, 2, 3, 4, 5];
+    const inOrderSequence = [0, 1, 2, 3, 4, 5];
+    const insertionSequence = [2, 1, 0, 4, 3, 5];
 
-    inOrderSequence.forEach((value) => tree.insert(value));
+    insertionSequence.forEach((value) => tree.insert(value));
 
     let orderSequenceIndex = 0;
     inOrderTraverse(tree.root, (key) => {
