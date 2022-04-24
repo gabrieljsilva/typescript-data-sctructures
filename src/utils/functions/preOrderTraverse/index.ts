@@ -6,8 +6,8 @@ export function preOrderTraverse<T = any>(
   callback?: BinarySearchTreeCallbackFN<T>,
 ) {
   if (node) {
+    callback?.(node.key);
     preOrderTraverse(node.left, callback);
     preOrderTraverse(node.right, callback);
-    callback?.(node.key);
   }
 }
