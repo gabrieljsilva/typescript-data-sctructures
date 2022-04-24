@@ -1,4 +1,4 @@
-import { BinarySearchTree } from '../../../data-structures/Tree/Classes/BinarySearchTree';
+import { BinarySearchTree } from '../../../data-structures/BinarySearchTree/Classes/BinarySearchTree';
 import { inOrderTraverse } from './index';
 
 describe('inOrderTraverse tests', () => {
