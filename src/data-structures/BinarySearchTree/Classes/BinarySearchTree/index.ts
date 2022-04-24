@@ -3,20 +3,20 @@ import { inOrderTraverse } from '../../../../utils/functions/inOrderTraverse';
 import { Node } from '../Node';
 import {
   BinarySearchTreeCallbackFN,
-  BinarySearchTreeDefaultCompareFN,
+  BinarySearchTreeCompareFN,
   BinarySearchTreeIterateFN,
 } from '../../types';
 
 export class BinarySearchTree<T = any> {
   root?: Node<T>;
 
-  compareFN: BinarySearchTreeDefaultCompareFN<T>;
+  compareFN: BinarySearchTreeCompareFN<T>;
 
   private iterateFN: BinarySearchTreeIterateFN<T>;
 
   constructor(
     iterateFN: BinarySearchTreeIterateFN<T> = inOrderTraverse,
-    compareFN: BinarySearchTreeDefaultCompareFN<T> = defaultCompare,
+    compareFN: BinarySearchTreeCompareFN<T> = defaultCompare,
   ) {
     this.compareFN = compareFN;
     this.iterateFN = iterateFN;
