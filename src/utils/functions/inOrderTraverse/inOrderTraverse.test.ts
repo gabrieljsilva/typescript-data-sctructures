@@ -2,7 +2,7 @@ import { BinarySearchTree } from '../../../data-structures/BinarySearchTree/Clas
 import { inOrderTraverse } from './index';
 
 describe('inOrderTraverse tests', () => {
-  it('should iterate a binary search tree using in-order sequence', () => {
+  it('should be able to iterate a binary search tree using in-order sequence', () => {
     const tree = new BinarySearchTree<number>();
     const inOrderSequence = [0, 1, 2, 3, 4, 5];
     const insertionSequence = [2, 1, 0, 4, 3, 5];

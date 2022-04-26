@@ -24,6 +24,7 @@ describe('BinarySearchTree tests', () => {
     });
   });
 
+  // todo fix this test
   it('should be able to iterate a tree with in order traverse sequence by default', () => {
     const inOrderSequence = [1, 2, 3, 4, 5, 6];
     const tree = new BinarySearchTree<number>(inOrderSequence);
@@ -33,6 +34,7 @@ describe('BinarySearchTree tests', () => {
     });
   });
 
+  // todo fix this test
   it('should be able to exchange default iterate method', () => {
     const preOrderSequence = [2, 1, 4, 3, 6, 5];
     const tree = new BinarySearchTree<number>(preOrderSequence, {

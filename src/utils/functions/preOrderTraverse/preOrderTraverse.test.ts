@@ -2,7 +2,7 @@ import { BinarySearchTree } from '../../../data-structures/BinarySearchTree/Clas
 import { preOrderTraverse } from './index';
 
 describe('preOrderTraverse tests', () => {
-  it('should iterate a binary search tree using pre-order sequence', () => {
+  it('should be able to iterate a binary search tree using pre-order sequence', () => {
     const tree = new BinarySearchTree<number>();
     const preOrderSequence = [2, 1, 4, 3, 6, 5];
 
