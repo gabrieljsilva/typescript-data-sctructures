@@ -45,20 +45,16 @@ describe('BinarySearchTree tests', () => {
   });
 
   it('should be able to find min value of a BinarySearchTree', () => {
-    const tree = new BinarySearchTree<number>();
-    const valuesToInsert = [2, 1, 4, 3, 0, 5];
+    const initialValues = [2, 1, 4, 3, 0, 5];
+    const tree = new BinarySearchTree<number>(initialValues);
 
-    valuesToInsert.forEach((value) => tree.insert(value));
-
-    expect(tree.min).toBe(Math.min(...valuesToInsert));
+    expect(tree.min).toBe(Math.min(...initialValues));
   });
 
   it('should be able to find max value of a BinarySearchTree', () => {
-    const tree = new BinarySearchTree<number>();
-    const valuesToInsert = [2, 1, 4, 3, 0, 5];
+    const initialValues = [2, 1, 4, 3, 0, 5];
+    const tree = new BinarySearchTree<number>(initialValues);
 
-    valuesToInsert.forEach((value) => tree.insert(value));
-
-    expect(tree.max).toBe(Math.max(...valuesToInsert));
+    expect(tree.max).toBe(Math.max(...initialValues));
   });
 });
