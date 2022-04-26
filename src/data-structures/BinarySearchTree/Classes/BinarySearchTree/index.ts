@@ -49,4 +49,28 @@ export class BinarySearchTree<T = any> {
       node.right = newNode;
     }
   }
+
+  get min() {
+    return this.minNode(this.root)?.key;
+  }
+
+  get max() {
+    return this.maxNode(this.root)?.key;
+  }
+
+  minNode(node?: Node<T>) {
+    let currentNode = node;
+    while (currentNode?.left) {
+      currentNode = currentNode.left;
+    }
+    return currentNode;
+  }
+
+  maxNode(node?: Node<T>) {
+    let currentNode = node;
+    while (currentNode?.right) {
+      currentNode = currentNode.right;
+    }
+    return currentNode;
+  }
 }
