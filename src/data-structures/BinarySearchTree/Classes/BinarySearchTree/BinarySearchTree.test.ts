@@ -2,7 +2,7 @@ import { preOrderTraverse } from '../../../../utils/functions/preOrderTraverse';
 import { BinarySearchTree } from './index';
 
 describe('BinarySearchTree tests', () => {
-  it('should insert a value in BinarySearchTree sorted in ascending order', () => {
+  it('should be able to insert a value in BinarySearchTree sorted in ascending order', () => {
     const tree = new BinarySearchTree<number>();
     const randomSequence = [1, 4, 6, 3, 5, 2];
     randomSequence.forEach((value) => tree.insert(value));
@@ -13,22 +13,31 @@ describe('BinarySearchTree tests', () => {
     });
   });
 
-  //todo update this test
-  it('should iterate a tree with in order traverse sequence by default', () => {
-    const tree = new BinarySearchTree<number>();
+  // todo fix this test
+  it('should be able to create a tree with initial values', () => {
+    const initialValues = [1, 2, 3, 4, 5, 6];
+    const tree = new BinarySearchTree(initialValues);
+
+    let sequenceIndex = 0;
+    tree.forEachKey((value) => {
+      expect(value).toBe(initialValues[sequenceIndex++]);
+    });
+  });
+
+  it('should be able to iterate a tree with in order traverse sequence by default', () => {
     const inOrderSequence = [1, 2, 3, 4, 5, 6];
-    inOrderSequence.forEach((value) => tree.insert(value));
+    const tree = new BinarySearchTree<number>(inOrderSequence);
     let sequenceIndex = 0;
     tree.forEachKey((value) => {
       expect(value).toBe(inOrderSequence[sequenceIndex++]);
     });
   });
 
-  //todo update this test
-  it('should exchange default iterate method', () => {
-    const tree = new BinarySearchTree<number>(preOrderTraverse);
+  it('should be able to exchange default iterate method', () => {
     const preOrderSequence = [2, 1, 4, 3, 6, 5];
-    preOrderSequence.forEach((value) => tree.insert(value));
+    const tree = new BinarySearchTree<number>(preOrderSequence, {
+      iterateFN: preOrderTraverse,
+    });
     let sequenceIndex = 0;
     tree.forEachKey((value) => {
       expect(value).toBe(preOrderSequence[sequenceIndex++]);

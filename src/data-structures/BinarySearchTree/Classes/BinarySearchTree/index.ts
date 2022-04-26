@@ -5,6 +5,7 @@ import {
   BinarySearchTreeCallbackFN,
   BinarySearchTreeCompareFN,
   BinarySearchTreeIterateFN,
+  BinarySearchTreeOptions,
 } from '../../types';
 
 export class BinarySearchTree<T = any> {
@@ -15,11 +16,17 @@ export class BinarySearchTree<T = any> {
   private iterateFN: BinarySearchTreeIterateFN<T>;
 
   constructor(
-    iterateFN: BinarySearchTreeIterateFN<T> = inOrderTraverse,
-    compareFN: BinarySearchTreeCompareFN<T> = defaultCompare,
+    initialValues?: Iterable<T>,
+    options?: BinarySearchTreeOptions<T>,
   ) {
-    this.compareFN = compareFN;
-    this.iterateFN = iterateFN;
+    this.compareFN = options?.compareFN ?? defaultCompare;
+    this.iterateFN = options?.iterateFN ?? inOrderTraverse;
+
+    if (initialValues) {
+      for (const value of initialValues) {
+        this.insert(value);
+      }
+    }
   }
 
   forEachKey(callback: BinarySearchTreeCallbackFN<T>) {
