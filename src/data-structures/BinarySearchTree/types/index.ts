@@ -1,5 +1,5 @@
 import { Compare } from '../../../utils/functions/compare';
-import { Node } from '../Classes';
+import { Node } from '../classes';
 
 export type BinarySearchTreeCompareFN<T = any> = (a: T, b: T) => Compare;
 export type BinarySearchTreeCallbackFN<T = any> = (key: T) => void;

@@ -1,4 +1,4 @@
-import { Node } from '../../../data-structures/BinarySearchTree/Classes/Node';
+import { Node } from '../../../data-structures/BinarySearchTree/classes/Node';
 import { BinarySearchTreeCallbackFN } from '../../../data-structures/BinarySearchTree/types';
 
 export function postOrderTraverse<T = any>(

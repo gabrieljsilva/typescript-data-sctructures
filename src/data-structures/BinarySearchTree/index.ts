@@ -1,2 +1,2 @@
-export * from './Classes';
+export * from './classes';
 export * from './types';
