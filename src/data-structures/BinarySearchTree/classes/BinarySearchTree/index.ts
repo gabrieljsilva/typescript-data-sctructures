@@ -1,5 +1,5 @@
-import { Compare, defaultCompare } from '../../../../utils/functions/compare';
-import { inOrderTraverse } from '../../../../utils/functions/inOrderTraverse';
+import { Compare, defaultCompare } from '../../../../utils';
+import { inOrderTraverse } from '../../../../utils';
 import { Node } from '../Node';
 import {
   BinarySearchTreeCallbackFN,

@@ -1,4 +1,4 @@
-import { preOrderTraverse } from '../../../../utils/functions/preOrderTraverse';
+import { preOrderTraverse } from '../../../../utils';
 import { BinarySearchTree } from './index';
 
 describe('BinarySearchTree tests', () => {

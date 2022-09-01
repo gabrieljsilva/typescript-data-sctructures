@@ -1,4 +1,4 @@
-import { Compare } from '../../../utils/functions/compare';
+import { Compare } from '../../../utils';
 import { Node } from '../classes';
 
 export type BinarySearchTreeCompareFN<T = any> = (a: T, b: T) => Compare;
