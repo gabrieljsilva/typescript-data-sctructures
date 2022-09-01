@@ -4,7 +4,7 @@ import { Node } from '../Node';
 describe('LinkedList tests', () => {
   it('should be defined', () => {
     const list = new LinkedList();
-    expect(list instanceof LinkedList).toBeTruthy();
+    expect(list).toBeInstanceOf(LinkedList);
   });
 
   it('should be able to add an item to the end of a list', () => {

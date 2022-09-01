@@ -1,7 +1,7 @@
 export class Deck<T = any> {
   private count: number;
   private lowestCount: number;
-  private items: Record<number, T>;
+  private readonly items: Record<number, T>;
 
   constructor() {
     this.count = 0;

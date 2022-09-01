@@ -3,7 +3,7 @@ import { Deck } from '.';
 describe('deck tests', () => {
   it('should be defined', () => {
     const deck = new Deck();
-    expect(deck instanceof Deck).toBe(true);
+    expect(deck).toBeInstanceOf(Deck);
   });
 
   it('should be able to return true if is empty', () => {

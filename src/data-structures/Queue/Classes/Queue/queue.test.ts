@@ -3,7 +3,7 @@ import { Queue } from '.';
 describe('queue tests', () => {
   it('should be defined', () => {
     const queue = new Queue();
-    expect(queue.peek()).toBe(undefined);
+    expect(queue).toBeInstanceOf(Queue);
   });
 
   it('should be able to add an item to the end of a queue', () => {
