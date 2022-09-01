@@ -1,4 +1,4 @@
-import { preOrderTraverse } from '../../../../utils';
+import { Compare, preOrderTraverse } from '../../../../utils';
 import { BinarySearchTree } from './index';
 
 describe('BinarySearchTree tests', () => {
@@ -58,5 +58,21 @@ describe('BinarySearchTree tests', () => {
     const tree = new BinarySearchTree<number>(initialValues);
 
     expect(tree.max).toBe(Math.max(...initialValues));
+  });
+
+  it('should be able to exchange default compare method', () => {
+    const initialValues: BSTItemType[] = [
+      { key: 2 },
+      { key: 1 },
+      { key: 4 },
+      { key: 3 },
+      { key: 0 },
+      { key: 5 },
+    ];
+    type BSTItemType = { key: number };
+    const compareFN = (a: BSTItemType, b: BSTItemType) =>
+      a.key < b.key ? Compare.LESS_THAN : Compare.BIGGER_THEN;
+    const tree = new BinarySearchTree<BSTItemType>(initialValues, { compareFN });
+    expect(tree.compareFN).toBe(compareFN);
   });
 });
