@@ -9,11 +9,9 @@ import {
 } from '../../types';
 
 export class BinarySearchTree<T = any> {
-  root?: Node<T>;
-
-  compareFN: BinarySearchTreeCompareFN<T>;
-
-  private iterateFN: BinarySearchTreeIterateFN<T>;
+  public root?: Node<T>;
+  public compareFN: BinarySearchTreeCompareFN<T>;
+  private readonly iterateFN: BinarySearchTreeIterateFN<T>;
 
   constructor(
     initialValues?: Iterable<T>,
@@ -29,11 +27,11 @@ export class BinarySearchTree<T = any> {
     }
   }
 
-  forEachKey(callback: BinarySearchTreeCallbackFN<T>) {
+  public forEachKey(callback: BinarySearchTreeCallbackFN<T>) {
     this.iterateFN(this.root, callback);
   }
 
-  insert(key: T) {
+  public insert(key: T) {
     if (this.root) {
       this.insertNode(this.root, key);
     } else {
@@ -41,10 +39,11 @@ export class BinarySearchTree<T = any> {
     }
   }
 
-  insertNode(node: Node, key: T) {
+  public insertNode(node: Node, key: T) {
     const newNode = new Node(key);
-
-    if (this.compareFN(key, node.key) === Compare.LESS_THAN) {
+    const isKeyLessThanCurrentNodeKey =
+      this.compareFN(key, node.key) === Compare.LESS_THAN;
+    if (isKeyLessThanCurrentNodeKey) {
       if (node?.left) {
         this.insertNode(node.left, key);
       } else {
@@ -57,15 +56,15 @@ export class BinarySearchTree<T = any> {
     }
   }
 
-  get min() {
+  public get min() {
     return this.minNode(this.root)?.key;
   }
 
-  get max() {
+  public get max() {
     return this.maxNode(this.root)?.key;
   }
 
-  minNode(node?: Node<T>) {
+  public minNode(node?: Node<T>) {
     let currentNode = node;
     while (currentNode?.left) {
       currentNode = currentNode.left;
@@ -73,7 +72,7 @@ export class BinarySearchTree<T = any> {
     return currentNode;
   }
 
-  maxNode(node?: Node<T>) {
+  public maxNode(node?: Node<T>) {
     let currentNode = node;
     while (currentNode?.right) {
       currentNode = currentNode.right;

@@ -1,9 +1,7 @@
 export class Node<T = any> {
-  key: T;
-
-  left?: Node;
-
-  right?: Node;
+  public key: T;
+  public left?: Node;
+  public right?: Node;
 
   constructor(key: T) {
     this.key = key;

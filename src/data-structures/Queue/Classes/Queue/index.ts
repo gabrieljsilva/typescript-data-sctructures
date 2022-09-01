@@ -1,8 +1,6 @@
 export class Queue<T = any> {
   private count: number;
-
   private lowestCount: number;
-
   private items: Record<number, T>;
 
   constructor() {
@@ -11,15 +9,15 @@ export class Queue<T = any> {
     this.lowestCount = 0;
   }
 
-  peek() {
+  public peek() {
     return this.items[this.lowestCount];
   }
 
-  enqueue(item: T) {
+  public enqueue(item: T) {
     this.items[this.count++] = item;
   }
 
-  dequeue() {
+  public dequeue() {
     const item = this.items[this.lowestCount];
     if (!item) {
       return undefined;
@@ -28,17 +26,17 @@ export class Queue<T = any> {
     return item;
   }
 
-  isEmpty() {
+  public isEmpty() {
     return this.count === this.lowestCount;
   }
 
-  clear() {
+  public clear() {
     this.items = {};
     this.count = 0;
     this.lowestCount = 0;
   }
 
-  get length() {
+  public get length() {
     return this.count - this.lowestCount;
   }
 }

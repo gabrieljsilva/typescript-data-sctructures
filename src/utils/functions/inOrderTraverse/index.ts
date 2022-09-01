@@ -1,5 +1,5 @@
 import { Node } from '../../../data-structures/BinarySearchTree/Classes/Node';
-import { BinarySearchTreeCallbackFN } from '../../../data-structures/BinarySearchTree/types/index';
+import { BinarySearchTreeCallbackFN } from '../../../data-structures/BinarySearchTree/types';
 
 export function inOrderTraverse<T = any>(
   node?: Node<T>,

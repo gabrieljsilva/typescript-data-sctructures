@@ -2,14 +2,13 @@ import { Node } from '../Node';
 
 export class LinkedList<T = any> {
   private count: number;
-
   private head?: Node;
 
   constructor() {
     this.count = 0;
   }
 
-  *[Symbol.iterator]() {
+  public *[Symbol.iterator]() {
     let currentItem = this.head;
     while (currentItem) {
       yield currentItem.value;
@@ -17,7 +16,7 @@ export class LinkedList<T = any> {
     }
   }
 
-  push(item: T) {
+  public push(item: T) {
     if (this.count === 0) {
       this.head = new Node(item);
     } else {
@@ -30,7 +29,7 @@ export class LinkedList<T = any> {
     this.count++;
   }
 
-  forEach(callbackFN?: (item: T, index: number) => void) {
+  public forEach(callbackFN?: (item: T, index: number) => void) {
     let currentItem = this.head;
     let currentIndex = 0;
     while (currentItem?.next) {
@@ -40,12 +39,12 @@ export class LinkedList<T = any> {
     }
   }
 
-  getElementAt(index: number): T | undefined {
+  public getElementAt(index: number): T | undefined {
     const node = this.getNodeAt(index);
     return node?.value;
   }
 
-  getNodeAt(index: number): Node | undefined {
+  public getNodeAt(index: number): Node | undefined {
     if (index >= 0 && index <= this.count) {
       let node = this.head;
       for (let i = 0; i < index && node; i++) {
@@ -56,7 +55,7 @@ export class LinkedList<T = any> {
     return undefined;
   }
 
-  remove(index: number) {
+  public remove(index: number) {
     if (index === 0) {
       this.head = undefined;
     } else {
@@ -67,13 +66,11 @@ export class LinkedList<T = any> {
     this.count--;
   }
 
-  insert(value: T, index: number) {
+  public insert(value: T, index: number) {
     const node = new Node(value);
-
     if (this.count < index || index < 0) {
       return false;
     }
-
     if (index === 0) {
       this.head = node;
     } else {
@@ -86,7 +83,7 @@ export class LinkedList<T = any> {
     return true;
   }
 
-  get size() {
+  public get size() {
     return this.count;
   }
 }

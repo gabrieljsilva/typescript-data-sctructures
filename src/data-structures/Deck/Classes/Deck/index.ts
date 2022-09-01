@@ -1,8 +1,6 @@
 export class Deck<T = any> {
   private count: number;
-
   private lowestCount: number;
-
   private items: Record<number, T>;
 
   constructor() {
@@ -11,21 +9,21 @@ export class Deck<T = any> {
     this.items = {};
   }
 
-  get isEmpty() {
+  public get isEmpty() {
     return this.count === this.lowestCount;
   }
 
-  push(item: T) {
+  public push(item: T) {
     this.items[this.count++] = item;
   }
 
-  pop() {
+  public pop() {
     const item = this.items[--this.count];
     delete this.items[--this.count];
     return item;
   }
 
-  unshift(item: T) {
+  public unshift(item: T) {
     if (this.isEmpty) {
       this.push(item);
     } else if (this.lowestCount > 0) {
@@ -40,18 +38,18 @@ export class Deck<T = any> {
     }
   }
 
-  shift() {
+  public shift() {
     const item = this.items[this.lowestCount];
     this.lowestCount++;
     delete this.items[this.lowestCount];
     return item;
   }
 
-  peekFront() {
+  public peekFront() {
     return this.items[this.lowestCount];
   }
 
-  peekBack() {
+  public peekBack() {
     return this.items[this.count - 1];
   }
 }
