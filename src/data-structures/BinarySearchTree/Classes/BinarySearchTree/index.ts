@@ -13,10 +13,7 @@ export class BinarySearchTree<T = any> {
   public compareFN: BinarySearchTreeCompareFN<T>;
   private readonly iterateFN: BinarySearchTreeIterateFN<T>;
 
-  constructor(
-    initialValues?: Iterable<T>,
-    options?: BinarySearchTreeOptions<T>,
-  ) {
+  constructor(initialValues?: Iterable<T>, options?: BinarySearchTreeOptions<T>) {
     this.compareFN = options?.compareFN ?? defaultCompare;
     this.iterateFN = options?.iterateFN ?? inOrderTraverse;
 
@@ -41,8 +38,7 @@ export class BinarySearchTree<T = any> {
 
   public insertNode(node: Node, key: T) {
     const newNode = new Node(key);
-    const isKeyLessThanCurrentNodeKey =
-      this.compareFN(key, node.key) === Compare.LESS_THAN;
+    const isKeyLessThanCurrentNodeKey = this.compareFN(key, node.key) === Compare.LESS_THAN;
     if (isKeyLessThanCurrentNodeKey) {
       if (node?.left) {
         this.insertNode(node.left, key);
