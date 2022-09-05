@@ -1,6 +1,6 @@
 import { Compare } from '../../../../utils';
 import { BinarySearchTree } from './index';
-import { BSTPreOrderIterator } from '../Iterators';
+import { BSTPostOrderIterator, BSTPreOrderIterator } from '../Iterators';
 
 describe('BinarySearchTree tests', () => {
   it('should be able to insert a value in BinarySearchTree sorted in ascending order', () => {
@@ -32,10 +32,22 @@ describe('BinarySearchTree tests', () => {
     }
   });
 
-  it('should be able to exchange default iterate method', () => {
+  it('should be able to exchange default iterate method to pre order', () => {
     const preOrderSequence = [2, 1, 4, 3, 6, 5];
     const tree = new BinarySearchTree<number>(preOrderSequence, {
       iterator: BSTPreOrderIterator,
+    });
+    let sequenceIndex = 0;
+    for (const value of tree) {
+      expect(value).toBe(preOrderSequence[sequenceIndex++]);
+    }
+  });
+
+  it('should be able to exchange default iterate method to post order', () => {
+    const insertionSequence = [1, 2, 3, 4, 5, 6];
+    const preOrderSequence = [6, 5, 4, 3, 2, 1];
+    const tree = new BinarySearchTree<number>(insertionSequence, {
+      iterator: BSTPostOrderIterator,
     });
     let sequenceIndex = 0;
     for (const value of tree) {
