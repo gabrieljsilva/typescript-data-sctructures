@@ -8,14 +8,14 @@ export class BSTInOrderIterator<T = any> implements Iterator<T> {
   private itemsQueue = new Queue<T>();
 
   constructor(tree: BinarySearchTree<T>) {
-    this.traverse(tree.root, (node) => this.itemsQueue.enqueue(node.key));
+    this.inOrderTraverse(tree.root, (node) => this.itemsQueue.enqueue(node.key));
   }
 
-  private traverse(node?: Node<T>, callback?: BinarySearchTreeCallbackFN<Node<T>>) {
+  private inOrderTraverse(node?: Node<T>, callback?: BinarySearchTreeCallbackFN<Node<T>>) {
     if (node) {
-      this.traverse(node.left, callback);
+      this.inOrderTraverse(node.left, callback);
       callback?.(node);
-      this.traverse(node.right, callback);
+      this.inOrderTraverse(node.right, callback);
     }
   }
 
