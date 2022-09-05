@@ -17,7 +17,7 @@ export class Queue<T = any> {
     this.items[this.count++] = item;
   }
 
-  public dequeue() {
+  public dequeue(): T | undefined {
     const item = this.items[this.lowestCount];
     if (!item) {
       return undefined;

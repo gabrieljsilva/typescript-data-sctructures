@@ -1,21 +1,17 @@
-import { Compare, defaultCompare } from '../../../../utils';
-import { inOrderTraverse } from '../../../../utils';
+import { Compare, defaultCompare, Iterator } from '../../../../utils';
 import { Node } from '../Node';
-import {
-  BinarySearchTreeCallbackFN,
-  BinarySearchTreeCompareFN,
-  BinarySearchTreeIterateFN,
-  BinarySearchTreeOptions,
-} from '../../types';
+import { BinarySearchTreeCompareFN, BinarySearchTreeOptions } from '../../types';
+import { Newable } from '../../../../utils/types';
+import { BSTInOrderIterator } from '../Iterators';
 
 export class BinarySearchTree<T = any> {
   public root?: Node<T>;
   public compareFN: BinarySearchTreeCompareFN<T>;
-  private readonly iterateFN: BinarySearchTreeIterateFN<T>;
+  private readonly iterator: Newable<Iterator<T>>;
 
   constructor(initialValues?: Iterable<T>, options?: BinarySearchTreeOptions<T>) {
     this.compareFN = options?.compareFN ?? defaultCompare;
-    this.iterateFN = options?.iterateFN ?? inOrderTraverse;
+    this.iterator = options?.iterator ?? BSTInOrderIterator;
 
     if (initialValues) {
       for (const value of initialValues) {
@@ -24,8 +20,11 @@ export class BinarySearchTree<T = any> {
     }
   }
 
-  public forEachKey(callback: BinarySearchTreeCallbackFN<T>) {
-    this.iterateFN(this.root, callback);
+  public *[Symbol.iterator]() {
+    const iterator = this.getIterator();
+    while (iterator.hasNext()) {
+      yield iterator.next();
+    }
   }
 
   public insert(key: T) {
@@ -74,5 +73,9 @@ export class BinarySearchTree<T = any> {
       currentNode = currentNode.right;
     }
     return currentNode;
+  }
+
+  public getIterator() {
+    return new this.iterator(this);
   }
 }
