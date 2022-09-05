@@ -61,6 +61,7 @@ describe('BinarySearchTree tests', () => {
   });
 
   it('should be able to exchange default compare method', () => {
+    type BSTItemType = { key: number };
     const initialValues: BSTItemType[] = [
       { key: 2 },
       { key: 1 },
@@ -69,7 +70,6 @@ describe('BinarySearchTree tests', () => {
       { key: 0 },
       { key: 5 },
     ];
-    type BSTItemType = { key: number };
     const compareFN = (a: BSTItemType, b: BSTItemType) =>
       a.key < b.key ? Compare.LESS_THAN : Compare.BIGGER_THEN;
     const tree = new BinarySearchTree<BSTItemType>(initialValues, { compareFN });
